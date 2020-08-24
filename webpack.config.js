@@ -14,7 +14,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/demo-build`,
     publicPath: '/',
     filename: 'main.js',
   },

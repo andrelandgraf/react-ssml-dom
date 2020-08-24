@@ -16,7 +16,7 @@ git clone https://github.com/andrelandgraf/react-ssml-dom.git
 Build the demo
 
 ```bash
-npm run build
+npm run build:demo
 ```
 
 Run the demo 

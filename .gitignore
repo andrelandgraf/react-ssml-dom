@@ -8,6 +8,7 @@
 
 # production
 /dist
+/demo-build
 
 # misc
 haters/

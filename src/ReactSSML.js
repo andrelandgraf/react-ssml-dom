@@ -1,6 +1,7 @@
 import ReactReconciler from 'react-reconciler';
 
-import { Node, TextNode } from './ssml-dom';
+import Node from './ssml-dom/node';
+import TextNode from './ssml-dom/text';
 
 const rootHostContext = {};
 const childHostContext = {};

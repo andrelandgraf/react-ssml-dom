@@ -1,25 +1,26 @@
 {
-  "name": "react-ssml",
+  "name": "react-ssml-dom",
   "version": "1.0.0",
   "description": "A proof of concept react host implementation for ssml strings",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production",
-    "start:demo": "node dist/main.js"
+    "build:demo": "webpack --mode production",
+    "start:demo": "node demo-build/main.js",
+    "build": "rollup -c",
+    "start": "rollup -c -w"
   },
   "author": "Andre Landgraf",
-  "repository": "https://github.com/andrelandgraf/react-ssml-dom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrelandgraf/react-ssml-dom.git"
+  },
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "helmet": "^4.1.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
     "react-reconciler": "^0.25.1"
   },
   "devDependencies": {
@@ -27,8 +28,11 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^4.3.0",
@@ -39,7 +43,15 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
     "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "rollup": "^2.26.5",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-jsx": "^1.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
