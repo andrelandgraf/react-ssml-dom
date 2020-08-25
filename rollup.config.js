@@ -1,5 +1,4 @@
 import babel from 'rollup-plugin-babel';
-import jsx from 'rollup-plugin-jsx';
 import commonjs from 'rollup-plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
@@ -17,14 +16,15 @@ export default {
     },
   ],
   plugins: [
-    nodeResolve(),
+    nodeResolve({
+      preferBuiltins: true,
+    }),
+    babel({ exclude: 'node_modules/**' }),
     commonjs({
       namedExports: {
         'node_modules/react-reconciler/index.js': ['isValidElementType'],
       },
-      include: [/node_modules\/react-reconciler/],
+      include: [/node_modules\/*/],
     }),
-    babel({ exclude: 'node_modules/**' }),
-    jsx({ factory: 'React.createElement' }),
   ],
 };

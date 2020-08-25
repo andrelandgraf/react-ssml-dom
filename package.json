@@ -1,6 +1,6 @@
 {
   "name": "react-ssml-dom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A proof of concept react host implementation for ssml strings",
   "main": "./dist/index.js",
   "files": [
@@ -51,7 +51,6 @@
     "rollup": "^2.26.5",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-jsx": "^1.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
