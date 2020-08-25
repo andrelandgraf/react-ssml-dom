@@ -27,4 +27,5 @@ export default {
       include: [/node_modules\/*/],
     }),
   ],
+  external: ['react'],
 };
