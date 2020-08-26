@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Exercise = ({ src }) => (
   <audio src={src}>
-    Oh, I am sorry, this file seems not to work, please try another song
+    This message will be played in case the src file is not working.
   </audio>
 );
 

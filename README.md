@@ -115,3 +115,7 @@ The demo folder contains a demo React App. The demo express server runes via `.i
 Set `receivedError` in `./demo/Reply.jsx` to `true` and see how the response SSML changes.
 
 Also, try to set the timeout time in `./demo/Reply.jsx` from `3000` to `8000` which is higher as our global timeout in `index.js`. See what happens to get an idea of how this project works.
+
+## 🔛 Example Apps using ReactSSML
+
+- [Covid-19 Stats in SSML](https://github.com/andrelandgraf/covid-stats-ssml)
