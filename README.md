@@ -5,7 +5,61 @@
   <img src="code.png" alt="Hello World SSML" />
 </div>
 
-## 🌟 Quick Start
+## ❓What is this?
+
+Utilize the full power of React to develop voice UIs. ReactSSML provides a simple custom React renderer that let's you use React and JSX to create SSML output.
+
+I wrote a small article about [my motivation](https://medium.com/@andre.timo.landgraf/a-react-renderer-for-ssml-91cdd1d66b3e).
+
+This project is brand new, so if you run into issues or have questions, open up an issue and let me know! Any feedback is highly appreciated.
+
+## 🚀 Installing ReactSSML
+
+Get the package from [npm](https://www.npmjs.com/package/react-ssml-dom).
+
+```bash
+npm i react-ssml-dom
+```
+
+Create an App component
+
+```javascript
+import React from 'react';
+
+const App = () => <s>Hello World</s>;
+
+export default App;
+```
+
+Render your App
+
+```javascript
+import ReactSMML, { Document, Node } from 'react-ssml-dom';
+
+// create a document similar to the DOM's document
+const ssmlDocument = new Document();
+// create a root node similar to the body in HTML
+const root = new Node('speak');
+ssmlDocument.body = root;
+
+ReactSMML.render(<App />, root);
+```
+
+***Done!***
+
+```javascript
+console.log(ssmlDocument.toString())
+```
+
+```html
+<speak>
+  <s>Hello World!</s>
+</speak>
+```
+
+## 🌟 Next steps
+
+***Clone this repo and play around with the demo application***
 
 Get the source code
 
@@ -24,7 +78,7 @@ Run the demo
 ```bash
 npm run start:demo
 
-> react-ssml@1.0.0 start:demo /Users/anlandg/workspaces/react-ssml
+> react-ssml@1.0.2 start:demo /react-ssml
 > node dist/main.js
 
 Express backend listening on port 8888! 🚀
@@ -35,7 +89,7 @@ Express backend listening on port 8888! 🚀
 Use Postman or a tool of your choice to hit the fulfillment endpoint.
 
 ```bash
-curl -X POST http://localhost:8080/api/login/
+curl -X POST http://localhost:8888
 ```
 
 And there we go!

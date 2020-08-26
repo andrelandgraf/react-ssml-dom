@@ -1,6 +1,6 @@
 {
   "name": "react-ssml-dom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A proof of concept react host implementation for ssml strings",
   "main": "./dist/index.js",
   "files": [
