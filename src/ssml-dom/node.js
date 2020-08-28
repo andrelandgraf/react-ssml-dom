@@ -27,10 +27,14 @@ export default class Node {
     const tag = Object.keys(this.attributes).length
       ? `<${this.type} ${Object.entries(this.attributes)
           .map(([key, value]) => `${key}="${value}"`)
-          .join('\n')}>`
+          .join(' ')}>`
       : `<${this.type}>`;
-    return `${tag} ${this.children.map(child => child.toString()).join('\n')} ${
-      this.textContent
-    }</${this.type}>`;
+    const innerSSML = this.children.length
+      ? this.children.map(child => child.toString()).join(' ')
+      : this.textContent;
+    return `${tag}${innerSSML}</${this.type}>`
+      .replace(/\n/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 }

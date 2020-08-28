@@ -7,11 +7,45 @@
 
 ## ❓What is this?
 
-Utilize the full power of React to develop voice UIs. ReactSSML provides a simple custom React renderer that let's you use React and JSX to create SSML output.
+Utilize the full power of React to develop voice UIs. ReactSSML provides a simple custom React renderer that let's you use React and JSX to create [SSML](https://www.w3.org/TR/speech-synthesis11/) output.
+
+This project is brand new, so if you run into issues or have questions, open up an issue and let me know! Any feedback is highly appreciated.
+
+## 🌟 Motivation
+
+- Building SSML speech responses with strings is cumbersome.
+- Let's treat voice apps as UI.
+- Enable composition and declarative syntax.
 
 I wrote a small article about [my motivation](https://medium.com/@andre.timo.landgraf/a-react-renderer-for-ssml-91cdd1d66b3e).
 
-This project is brand new, so if you run into issues or have questions, open up an issue and let me know! Any feedback is highly appreciated.
+***What we hate***
+
+```javascript
+const reply = `
+<speak>
+ ${ firstSession ? 'helloLong' : 'helloShort' }
+ <audio src='https://s3-bucket/niceSound.mp3'/>
+ ${ i18n.t(keys.offerHelp) }
+ ${ showHint ? newFeatureHint : '' }
+ ${ i18n.t(keys.promptSearch) }
+</speak>`;
+```
+
+***What we want***
+```html
+const reply = `
+<App>
+ <SearchProvider>
+   <Introduction long={firstSession} />
+   <BrandedAudio />
+   <OfferHelp />
+   {
+     showHint && <NewestFeatureHint />
+   }
+ </SearchProvider>
+</App>`;
+```
 
 ## 🚀 Installing ReactSSML
 
