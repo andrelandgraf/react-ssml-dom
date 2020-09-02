@@ -1,6 +1,6 @@
 {
   "name": "react-ssml-dom",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A proof of concept react host implementation for ssml strings",
   "main": "./dist/index.js",
   "files": [
@@ -21,6 +21,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react-reconciler": "^0.25.1"
   },
   "devDependencies": {
@@ -46,7 +47,6 @@
     "express": "^4.17.1",
     "helmet": "^4.1.0",
     "prettier": "^1.19.1",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "rollup": "^2.26.5",
     "rollup-plugin-babel": "^4.4.0",

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import XMLDeclaration from './declaration';
 import Root from './root';
 
@@ -52,3 +54,9 @@ export default class Document {
     return this.body.toString();
   }
 }
+
+const documentType = PropTypes.shape({
+  setReady: PropTypes.func,
+});
+
+export { documentType };

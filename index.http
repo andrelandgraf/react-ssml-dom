@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:8888
+
+
+###  Hello World Example
+
+POST {{baseUrl}}/hello-world
+
+
+### Advanced Example 
+
+POST {{baseUrl}}/advanced
+Content-Type: application/json
+
+{
+    "intent": "WELCOME_INTENT"
+}
+
+### Advanced Example Weather
+
+POST {{baseUrl}}/advanced
+Content-Type: application/json
+
+{
+    "intent": "WEATHER"
+}
+
+### Advanced Example Weather from AoG
+
+POST {{baseUrl}}/advanced
+Content-Type: application/json
+
+{
+    "originalDetectIntentRequest": {
+        "source": "google",
+        "payload": {
+            "user": {
+                "locale": "en-US"
+            }
+        }
+    },
+    "queryResult": {
+        "intent": {
+            "displayName": "WEATHER"
+        }
+    }
+}
