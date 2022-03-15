@@ -1,59 +1,30 @@
 import React from 'react';
-
-import { documentType } from '../src';
 import Error from './Error';
 
-const receivedError = false;
+const shouldActAs = 'success';
 
-const fetchWeatherData = () =>
-  new Promise(resolve => {
-    setTimeout(
-      () =>
-        receivedError
-          ? resolve({ error: 'error' })
-          : resolve({ weather: 'sunny' }),
-      3000
-    );
-  });
-
-const Weather = ({ doc }) => {
-  const [forecast, setForecast] = React.useState();
-  const [status, setStatus] = React.useState('idle');
-
-  // fetch
-  React.useEffect(() => {
-    if (status === 'idle') {
-      setStatus('loading');
-
-      const fetch = async () => {
-        const { error, weather } = await fetchWeatherData();
-        if (error) {
-          setStatus('error');
-        } else {
-          setForecast(weather);
-          setStatus('success');
-        }
-      };
-      fetch();
-    } else if (status === 'success') {
-      // let's signal that the document is ready
-      // will resolve the doc.isReady promise
-      doc.setReady();
-    }
-  }, [doc, status]);
-
-  switch (status) {
-    case 'error':
-      return <Error />;
-    case 'success':
-      return `The forecase for today's weather is ${forecast}`;
-    default:
-      return 'It seems like we timed out';
-  }
+const fetchWeatherData = () => {
+    throw new Promise(resolve => {
+        setTimeout(
+            () =>
+                shouldActAs === 'error'
+                    ? resolve({ error: 'internal' })
+                    : shouldActAs === 'success'
+                    ? resolve({ error: 'timeout' })
+                    : resolve({ weather: 'sunny' }),
+            3000,
+        );
+    });
 };
 
-Weather.propTypes = {
-  doc: documentType,
+const Weather = () => {
+    const forecast = fetchWeatherData();
+
+    if (forecast.error) {
+        return forecast.error === 'timeout' ? 'We are sorry. This took too long.' : <Error />;
+    } else {
+        return `The forecase for today's weather is ${forecast.weather}`;
+    }
 };
 
 export default Weather;

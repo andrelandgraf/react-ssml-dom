@@ -1,0 +1,12 @@
+src
+demo
+demo-build
+code.png
+.eslintignore
+.eslintrc.js
+.gitignore
+.prettierrc.js
+.vscode
+node_modules
+rollup.config.js
+tsconfig.json

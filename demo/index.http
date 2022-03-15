@@ -1,13 +1,15 @@
 @baseUrl = http://localhost:8888
 
 
-###  Hello World Example
-
+###  Hello World JSON Example
 POST {{baseUrl}}/hello-world
+
+### Hello World Document Example
+POST {{baseUrl}}/hello-world
+Accept: application/ssml+xml
 
 
 ### Advanced Example 
-
 POST {{baseUrl}}/advanced
 Content-Type: application/json
 
@@ -16,7 +18,6 @@ Content-Type: application/json
 }
 
 ### Advanced Example Weather
-
 POST {{baseUrl}}/advanced
 Content-Type: application/json
 
@@ -24,8 +25,8 @@ Content-Type: application/json
     "intent": "WEATHER"
 }
 
+### NOTE Coming soon again:
 ### Advanced Example Weather from AoG
-
 POST {{baseUrl}}/advanced
 Content-Type: application/json
 

@@ -1,31 +1,22 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import typescript from 'rollup-plugin-typescript2';
 
-import pkg from './package.json';
+import packageJson from './package.json';
 
 export default {
-  input: 'src/index.js',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-      strict: false,
-    },
-  ],
-  plugins: [
-    nodeResolve({
-      preferBuiltins: true,
-    }),
-    babel({ exclude: 'node_modules/**' }),
-    commonjs({
-      namedExports: {
-        'node_modules/react-reconciler/index.js': ['isValidElementType'],
-      },
-      include: [/node_modules\/*/],
-    }),
-  ],
-  external: ['react'],
+    input: 'src/index.ts',
+    output: [
+        {
+            file: packageJson.main,
+            format: 'cjs',
+            sourcemap: true,
+        },
+        {
+            file: packageJson.module,
+            format: 'esm',
+            sourcemap: true,
+        },
+    ],
+    plugins: [peerDepsExternal(), commonjs({ exclude: 'node_modules/*' }), typescript()],
 };
