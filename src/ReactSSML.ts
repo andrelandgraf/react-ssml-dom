@@ -33,9 +33,6 @@ const reconciler = ReactReconciler<any, any, Node, any, any, any, any, any, any,
         });
         return domElement;
     },
-    clearContainer: container => {
-        container.children = [];
-    },
     createTextInstance: text => new TextNode(text),
     appendChildToContainer: (container, child) => {
         container.appendChild(child);
@@ -46,7 +43,7 @@ const reconciler = ReactReconciler<any, any, Node, any, any, any, any, any, any,
     appendChild(parent, child) {
         parent.appendChild(child);
     },
-    finalizeInitialChildren: (domElement, type, props) => true,
+    finalizeInitialChildren: (domElement, type, props) => false,
     prepareUpdate(domElement, oldProps, newProps) {
         return true;
     },
@@ -74,6 +71,10 @@ const reconciler = ReactReconciler<any, any, Node, any, any, any, any, any, any,
     getPublicInstance: instance => instance,
     preparePortalMount: () => undefined,
     scheduleTimeout: () => undefined,
+    /** because tree is mutable we implement: */
+    clearContainer: container => {
+        container.children = [];
+    },
 });
 
 const ReactSSML = {
