@@ -1,6 +1,6 @@
 {
     "name": "react-ssml-dom",
-    "version": "2.0.0-experimental.1",
+    "version": "2.0.0-experimental.2",
     "description": "A proof of concept react host implementation for ssml strings",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
@@ -13,7 +13,7 @@
         "lint": "eslint .",
         "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
         "publish:package": "npm run prepublish && npm publish",
-        "build:demo": "cd demo/ && webpack --mode production",
+        "build:demo": "cd demo/ && webpack --mode development",
         "start:demo": "node demo-build/main.js",
         "build": "rollup -c",
         "start": "rollup -c -w"
@@ -47,14 +47,14 @@
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-prettier": "^3.4.1",
         "eslint-plugin-react": "^7.29.3",
-        "eslint-plugin-react-hooks": "^1.7.0",
         "express": "^4.17.1",
         "helmet": "^4.1.0",
         "prettier": "^1.19.1",
-        "react": "^17.0.2",
+        "react": "^18.0.0-beta-24dd07bd2-20211208",
         "rollup": "^2.26.5",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-typescript2": "^0.31.2",
+        "typescript": "^4.6.2",
         "webpack": "^5.70.0",
         "webpack-cli": "^4.9.2",
         "webpack-dev-server": "^3.11.0"

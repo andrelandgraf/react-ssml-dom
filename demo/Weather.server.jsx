@@ -1,5 +1,5 @@
 import React from 'react';
-import Error from './Error';
+import Error from './Error.server';
 
 const shouldActAs = 'success';
 
@@ -23,7 +23,7 @@ const Weather = () => {
     if (forecast.error) {
         return forecast.error === 'timeout' ? 'We are sorry. This took too long.' : <Error />;
     } else {
-        return `The forecase for today's weather is ${forecast.weather}`;
+        return `The forecast for today's weather is ${forecast.weather}`;
     }
 };
 

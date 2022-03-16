@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 import ReactSMML, { Document, Node } from '../dist';
-import App from './App';
+import App from './App.server';
 
 const app = express();
 

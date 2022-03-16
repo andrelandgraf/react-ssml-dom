@@ -1,7 +1,7 @@
-import type { NodeType } from './utils';
+import type { NodeType } from './utils';
 
 export default class TextNode {
-    type: NodeType =  "text";
+    type: NodeType = "text";
     text = '';
 
     constructor(text: string) {

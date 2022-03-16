@@ -6,7 +6,7 @@ import TextNode from './ssml-dom/text';
 const rootHostContext = {};
 const childHostContext = {};
 
-const reconciler = ReactReconciler<any, any, any, any, any, any, any, any, any, any, any, any, any>({
+const reconciler = ReactReconciler<any, any, Node, any, any, any, any, any, any, any, any, any, any>({
     /* host config for ssml */
     now: Date.now,
     supportsMutation: true,
@@ -32,6 +32,9 @@ const reconciler = ReactReconciler<any, any, any, any, any, any, any, any, any, 
             }
         });
         return domElement;
+    },
+    clearContainer: container => {
+        container.children = [];
     },
     createTextInstance: text => new TextNode(text),
     appendChildToContainer: (container, child) => {

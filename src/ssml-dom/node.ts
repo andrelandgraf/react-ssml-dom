@@ -1,4 +1,4 @@
-import type { NodeType } from './utils';
+import type { NodeType } from './utils';
 
 export default class Node {
     type: NodeType = '';
@@ -6,7 +6,7 @@ export default class Node {
     attributes: Record<string, string | boolean | number> = {};
     children: Array<Node> = [];
 
-    constructor(type:  NodeType) {
+    constructor(type: NodeType) {
         this.type = type;
     }
 

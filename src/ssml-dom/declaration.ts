@@ -1,7 +1,7 @@
 export default class XMLDeclaration {
-  version = '1.0';
+    version = '1.0';
 
-  toString() {
-    return `<?xml version="${this.version}"?>`;
-  }
+    toString() {
+        return `<?xml version="${this.version}"?>`;
+    }
 }

@@ -14,7 +14,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'prettier',
     ],
-    plugins: ['html', 'import', 'jsx-a11y', 'react-hooks'],
+    plugins: ['html', 'import', 'jsx-a11y'],
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',

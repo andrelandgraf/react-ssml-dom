@@ -1,5 +1,5 @@
-import React from 'react';
-import Weather from './Weather';
+import React, { Suspense } from 'react';
+import Weather from './Weather.server';
 
 const routes = [
     {
@@ -17,7 +17,11 @@ const App = ({ intent }) => {
     if (!route) {
         return "I am very sorry, I can't help with that.";
     }
-    return <route.Component />;
+    return (
+        <Suspense fallback="...">
+            <route.Component />
+        </Suspense>
+    );
 };
 
 export default App;
