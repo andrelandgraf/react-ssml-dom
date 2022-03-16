@@ -86,6 +86,13 @@ const ReactSSML = {
         const reactiveContainer = reconciler.createContainer(container, 0, false, null);
         reconciler.updateContainer(element, reactiveContainer, null, null);
     },
+
+    renderToString(element: JSX.Element): string {
+        // virtual node acts as an invisible container
+        const virtualNode = new Node('');
+        this.render(element, virtualNode);
+        return virtualNode.toString();
+    },
 };
 
 export default ReactSSML;

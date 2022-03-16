@@ -23,14 +23,15 @@ export default class Node {
     }
 
     toString(): string {
-        const tag = Object.keys(this.attributes).length
-            ? `<${this.type} ${Object.entries(this.attributes)
-                  .map(([key, value]) => `${key}="${value}"`)
-                  .join(' ')}>`
-            : `<${this.type}>`;
         const innerSSML = this.children.length
             ? this.children.map(child => child.toString()).join(' ')
             : this.textContent;
+        if(!this.type) return innerSSML;
+        const tag = Object.keys(this.attributes).length
+        ? `<${this.type} ${Object.entries(this.attributes)
+              .map(([key, value]) => `${key}="${value}"`)
+              .join(' ')}>`
+        : `<${this.type}>`;
         return `${tag}${innerSSML}</${this.type}>`
             .replace(/\n/g, ' ')
             .replace(/\s+/g, ' ')
