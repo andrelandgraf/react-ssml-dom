@@ -1,19 +1,21 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules
+package-lock.json
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
 # production
-/dist
-/demo-build
+dist
+demo-build
 
 # misc
 haters/
 .vscode/
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local

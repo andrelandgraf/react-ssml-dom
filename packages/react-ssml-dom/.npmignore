@@ -1,0 +1,11 @@
+index.ts
+ReactSSML.ts
+code.png
+.eslintignore
+.eslintrc.js
+.gitignore
+.prettierrc.js
+.vscode
+node_modules
+rollup.config.js
+tsconfig.json

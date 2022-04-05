@@ -18,42 +18,42 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 function sendReply(req, res, ssml) {
-    const accept = req.headers.accept;
-    if (accept == 'application/ssml+xml') {
-        res.setHeader('Content-Type', 'application/ssml+xml');
-        res.status(200).send(ssml);
-    } else {
-        res.status(200).json({ ssml });
-    }
+  const accept = req.headers.accept;
+  if (accept == 'application/ssml+xml') {
+    res.setHeader('Content-Type', 'application/ssml+xml');
+    res.status(200).send(ssml);
+  } else {
+    res.status(200).json({ ssml });
+  }
 }
 
 app.post('/hello-world', async (req, res) => {
-    const HelloComponent = () => <>Hello World!</>;
-    const ssmlDocument = new Document();
-    ReactSMML.render(<HelloComponent />, ssmlDocument.body);
-    const ssml = ssmlDocument.toString();
-    sendReply(req, res, ssml);
+  const HelloComponent = () => <>Hello World!</>;
+  const ssmlDocument = new Document();
+  ReactSMML.render(<HelloComponent />, ssmlDocument.body);
+  const ssml = ssmlDocument.toString();
+  sendReply(req, res, ssml);
 });
 
 app.post('/advanced', async (req, res) => {
-    const { intent } = req.body;
-    // create document without defaultRoot or xmlDeclaration
-    const ssmlDocument = new Document('en-US', false, false);
-    // instead we create our own simple speak root node
-    const root = new Node('speak');
-    ssmlDocument.body = root;
+  const { intent } = req.body;
+  // create document without defaultRoot or xmlDeclaration
+  const ssmlDocument = new Document('en-US', false, false);
+  // instead we create our own simple speak root node
+  const root = new Node('speak');
+  ssmlDocument.body = root;
 
-    // we pass the conversation model and the document to our app so we can access it as props
-    ReactSMML.render(<App intent={intent || 'WELCOME_INTENT'} />, root);
+  // we pass the conversation model and the document to our app so we can access it as props
+  ReactSMML.render(<App intent={intent || 'WELCOME_INTENT'} />, root);
 
-    // will print the ssmlDocument tree
-    console.log('initial', ssmlDocument);
+  // will print the ssmlDocument tree
+  console.log('initial', ssmlDocument);
 
-    const ssml = ssmlDocument.toString();
-    // will print the ssml string
-    console.log(ssml);
+  const ssml = ssmlDocument.toString();
+  // will print the ssml string
+  console.log(ssml);
 
-    sendReply(req, res, ssml);
+  sendReply(req, res, ssml);
 });
 
 app.listen(8888, () => console.log('Express backend listening on port 8888! 🚀'));
