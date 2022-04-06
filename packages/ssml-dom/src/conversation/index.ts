@@ -3,7 +3,7 @@ import { SimpleJSON } from './adapters';
 
 class Conversation {
   locale = 'en-US';
-  request: Record<string, unknown>;
+  request: Record<string, unknown> | undefined;
   parameters: Record<string, unknown> = {};
   intent: string | undefined = undefined;
   sessionId: string | undefined = undefined;
@@ -24,9 +24,11 @@ class Conversation {
     return this;
   }
 
-  constructor(request: Record<string, unknown>) {
-    this.request = request;
-    this.handleRequest(request);
+  constructor(request?: Record<string, unknown>) {
+    if (request) {
+      this.request = request;
+      this.handleRequest(request);
+    }
   }
 
   canHandleRequest(request: Record<string, unknown>): boolean {

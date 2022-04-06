@@ -1,6 +1,6 @@
 {
   "name": "ssml-dom",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A work-in-progress implementation of a DOM-like API for SSML",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
